@@ -182,3 +182,19 @@ I will also accept helpful pull requests if you find an issue or have an idea fo
 Last but not least, check out [yWorks](https://www.yworks.com)' fine diagramming SDKs for software developers [yFiles](https://yworks.com/yfiles) and our [free online graph and diagram editors](https://yworks.com/editors)!
 
 This is under MIT license Copyright (c) 2023 Sebastian Mueller (yWorks) and Michael Haeglsperger (yWorks)
+
+## Deploy to Fly.io
+
+You can deploy this bot to [Fly.io](https://fly.io) with a few simple commands:
+
+Sign up for Fly.io and install the CLI.
+
+```
+fly launch --copy-config --no-public-ips --no-deploy
+
+fly secrets set MATTERMOST_URL=<YOUR_URL> MATTERMOST_TOKEN=<YOUR_BOT_TOKEN> OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+
+fly deploy --ha=false
+```
+
+This configuration will create a hobby account machine that will scale to zero when not in use.
